@@ -2,7 +2,56 @@
     <h1>Hola, Mundo!</h1>
     <h2>Subtitulo</h2>
     <p>{{title}}</p>
+    <form >
+        <input type="text" #idNambe>
+        <button (click)="EnviarNombre(idNambe)">Send User</button>
+    </form>
     <ul>
-        <li *ngFor="let user of users">{{user}}</li>
+        <li *ngFor="let user of users">{{user}}
+            <button (click)="seyHello()">
+                Click me!
+            </button>
+            <button (click)="deleteUser(user)">
+                X
+            </button>
+        </li>
+        
     </ul>
+    <div>
+        <form>
+            <input type="text" name="name" [(ngModel)]="name">
+            <input type="text" name="age" [(ngModel)]="age">
+        </form>
+        name: {{ name }}<br>
+        age: {{ age }}
+    </div>
+    <ul>
+        <li *ngIf="Activado">Activado</li>
+    </ul>
+    <ul>
+        <li *ngFor="let user of users">
+            <app-user [nameUser]="user"></app-user>
+        </li>
+    </ul>
+    <ul>
+        <li >
+            <app-user *ngFor="let user of users" [nameUser]="user"></app-user>
+        </li>
+    </ul>
+    <div>
+        <ul>
+            <li>Nombre: {{ name }}</li>
+            <li>Edad: {{ age }}</li>
+            <li>Calle: {{ address.street }}</li>
+            <li>Ciudad: {{ address.city }}</li>
+            <li *ngFor="let h of hobbies" >hobby: {{ h }}</li>
+        </ul>
+    </div>
+    <div *ngFor="let pots of post">
+        <h4>{{ pots.title }}</h4>
+        <p>{{ pots.body }}</p>
+    </div>
+
+    
+    
 </div>
